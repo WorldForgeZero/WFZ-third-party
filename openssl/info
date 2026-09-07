@@ -1,0 +1,35 @@
+OpenSSL
+Version: 3.5.8 LTS
+Source: https://www.openssl.org/
+Source package: openssl-3.5.8.tar.gz
+
+Build type: Static
+
+linux_amd64:
+- Target: linux-x86_64
+- Compiler: GCC
+- Shared libraries: disabled
+- Tests: disabled
+- Apps: disabled
+- Docs: disabled
+
+win64_mingw:
+- Target: mingw64
+- Cross compiler prefix: x86_64-w64-mingw32-
+- Compiler: MinGW-w64 GCC
+- Shared libraries: disabled
+- Tests: disabled
+- Apps: disabled
+- Docs: disabled
+
+Included files:
+- Public OpenSSL headers for each platform
+- libssl.a
+- libcrypto.a
+
+Notes:
+- Headers are stored per platform because some OpenSSL headers are generated during configuration and may be target-specific.
+- Static libraries are intended for use by WFZ components and bundled third-party libraries.
+
+OpenSSL is licensed under the Apache License 2.0.
+See LICENSE for details.
