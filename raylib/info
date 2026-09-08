@@ -2,8 +2,8 @@ raylib 6.0
 Upstream: raysan5/raylib
 
 Linux:
-  archive: raylib-6.0_linux_arm64.tar.gz 
-  sha256: sha256:d39ca0b36fe865b41b058a5646576e6b98b4875352502b41ed303f2c38a39ec9
+  archive: raylib-6.0_linux_amd64.tar.gz 
+  sha256: sha256:b64ba618a19e7da9e9c0e09bb398ecfd477a77d2d7231901bafc8739d27c08d2
 
 Windows:
   archive: raylib-6.0_win64_mingw-w64.zip 
