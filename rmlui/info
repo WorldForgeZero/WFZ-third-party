@@ -36,6 +36,12 @@ External dependencies:
 - FreeType 2.13.3
 - FreeType must be linked for the corresponding target platform
 
+Bundled backend sources:
+- GLFW platform backend
+- OpenGL 3 renderer backend
+- Copied from the same RmlUi revision as the bundled static libraries
+- Backend sources may be modified locally for WFZ
+
 Notes:
 - Headers are stored separately for each platform to preserve the exact installed output of each target build.
 - Static libraries are platform- and toolchain-specific.
