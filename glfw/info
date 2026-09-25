@@ -1,0 +1,45 @@
+GLFW
+Version: 3.5.1
+Source: https://github.com/glfw/glfw
+Source tag: 3.5.1
+
+Build type: Static
+
+linux_amd64:
+- Target: Linux x86_64
+- Compiler: GCC
+- Build type: Release
+- Shared libraries: disabled
+- X11 backend: enabled
+- Wayland backend: enabled
+- Examples: disabled
+- Tests: disabled
+- Documentation: disabled
+- Install files: enabled
+
+win64_mingw:
+- Target: Windows x86_64
+- Compiler: MinGW-w64 GCC
+- Cross compiler prefix: x86_64-w64-mingw32-
+- Build type: Release
+- Shared libraries: disabled
+- Examples: disabled
+- Tests: disabled
+- Documentation: disabled
+- Install files: enabled
+
+Included files:
+- Public GLFW headers for each platform
+- libglfw3.a
+
+Notes:
+- Headers are stored separately for each platform to preserve the exact installed output of each target build.
+- Static libraries are platform- and toolchain-specific.
+- The Linux build includes both X11 and Wayland support.
+- The Linux static library still relies on the corresponding system windowing and graphics libraries at final link/runtime.
+- The Windows build is intended for MinGW-w64 x86_64 targets.
+- GLFW is used as the platform/window/input backend for RmlUi integration.
+- The bundled static library is intended for WFZ components and related tooling.
+
+GLFW is licensed under the zlib/libpng license.
+See LICENSE for details.
