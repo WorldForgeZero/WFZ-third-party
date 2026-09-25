@@ -1,0 +1,43 @@
+FreeType
+Version: 2.13.3
+Source: https://github.com/freetype/freetype
+Source tag: VER-2-13-3
+
+Build type: Static
+
+linux_amd64:
+- Target: Linux x86_64
+- Compiler: GCC
+- Build type: Release
+- Shared libraries: disabled
+- Zlib dependency: disabled
+- BZip2 dependency: disabled
+- PNG dependency: disabled
+- HarfBuzz dependency: disabled
+- Brotli dependency: disabled
+
+win64_mingw:
+- Target: Windows x86_64
+- Compiler: MinGW-w64 GCC
+- Cross compiler prefix: x86_64-w64-mingw32-
+- Build type: Release
+- Shared libraries: disabled
+- Zlib dependency: disabled
+- BZip2 dependency: disabled
+- PNG dependency: disabled
+- HarfBuzz dependency: disabled
+- Brotli dependency: disabled
+
+Included files:
+- Public FreeType headers for each platform
+- libfreetype.a
+
+Notes:
+- Headers are stored separately for each platform to preserve the exact installed output of each target build.
+- Static libraries are platform- and toolchain-specific.
+- FreeType is currently bundled as a dependency of RmlUi.
+- Optional external compression, image, shaping, and Brotli dependencies were disabled for these builds.
+- The resulting static library is intended to be linked into WFZ components together with RmlUi.
+
+FreeType is distributed under the FreeType License.
+See the bundled license files for details.

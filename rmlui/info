@@ -1,0 +1,51 @@
+RmlUi
+Version: 6.3-10-g3045e6e3
+Revision: 3045e6e3510425ef2870f7647b3f59d3ae9970f5
+Source: https://github.com/mikke89/RmlUi
+
+Build type: Static
+
+linux_amd64:
+- Target: Linux x86_64
+- Compiler: GCC
+- Build type: Release
+- Shared libraries: disabled
+- Samples: disabled
+- Tests: disabled
+- Font engine: FreeType
+
+win64_mingw:
+- Target: Windows x86_64
+- Compiler: MinGW-w64 GCC
+- Cross compiler prefix: x86_64-w64-mingw32-
+- Build type: Release
+- Shared libraries: disabled
+- Samples: disabled
+- Tests: disabled
+- Font engine: FreeType
+
+Included files:
+- Public RmlUi headers for each platform
+- librmlui.a
+- librmlui_debugger.a, if retained
+
+Required consumer definitions:
+- RMLUI_STATIC_LIB
+
+External dependencies:
+- FreeType 2.13.3
+- FreeType must be linked for the corresponding target platform
+
+Notes:
+- Headers are stored separately for each platform to preserve the exact installed output of each target build.
+- Static libraries are platform- and toolchain-specific.
+- Linux and Windows builds must not be mixed.
+- RMLUI_STATIC_LIB must be defined by consumers of the static RmlUi library.
+- RmlUi Core does not provide a platform or graphics backend by itself.
+- The application must provide the appropriate system, input, and rendering integration.
+- Renderer backends and application-specific integrations are kept separate from the RmlUi Core library.
+- FreeType is bundled separately in WFZ-third-party and is not embedded into librmlui.a.
+- Optional RmlUi plugins are not part of the required Core dependency unless explicitly added later.
+
+RmlUi is licensed under the MIT License.
+See the bundled license file for details.
