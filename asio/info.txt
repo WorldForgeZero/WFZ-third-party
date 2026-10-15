@@ -1,0 +1,41 @@
+Asio (Standalone)
+Version: 1.38.2 (Stable)
+Source: https://think-async.com/Asio/
+Source package: asio-1.38.2.tar.gz
+
+Build type: Static (separate compilation)
+C++ standard: C++17
+Optimization: -O3
+Common definitions: ASIO_STANDALONE, ASIO_SEPARATE_COMPILATION
+Thread support: -pthread
+LTO: disabled
+SSL support: not included in libasio.a
+
+linux_amd64:
+- Compiler: GCC (g++)
+- Target: Linux x86_64
+- Compiler flags: -std=c++17 -O3 -pthread
+- Output: linux_amd64/libasio.a
+
+win64_mingw:
+- Compiler: MinGW-w64 GCC (x86_64-w64-mingw32-g++)
+- Target: Windows x86_64
+- Compiler flags: -std=c++17 -O3 -pthread
+- Output: win64_mingw/libasio.a
+- Link dependencies for WFZ: ws2_32, mswsock
+
+Included files:
+- Standalone Asio public headers (include/)
+- linux_amd64/libasio.a
+- win64_mingw/libasio.a
+
+Notes:
+- Both libraries are compiled from asio-1.38.2/src/asio.cpp.
+- WFZ must define ASIO_STANDALONE and ASIO_SEPARATE_COMPILATION when using these libraries.
+- The public headers are shared between Linux and Windows; platform-specific implementations are in separate static libraries.
+- Asio templates and other header-defined code are still compiled in the consuming project.
+- The separate SSL compilation unit (asio_ssl.cpp) is not included.
+- No Boost dependency is required.
+
+Asio is licensed under the Boost Software License 1.0.
+See LICENSE_1_0.txt for details.
